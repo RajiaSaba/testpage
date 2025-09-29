@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .container{
+            width: 90%;
+            max-width: 800px;
+            height: 100vh;
+            margin: auto; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content{
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+        }
+        .content input{
+            width: 100%;
+            padding: 20px 10px;
+            border: 2px solid rosybrown;
+            border-radius: 5px;
+            outline: 0;
+            color: black;
+            font-size: 20px;
+        }
+        img{
+            width: 30px;
+            position: absolute;
+            top: 38%;
+            right: 50px;
+            background-color: transparent;
+
+        }
+        #msg{
+            padding: 10px;
+            display: none;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <input type="password" placeholder="Enter your password" id="pass">
+            <img id="view" src="./hide.png">
+        </div>
+    </div>
+
+    <script>
+        let pass= document.getElementById("pass");
+        let view= document.getElementById("view");
+
+        view.onclick = function(){
+            if(pass.type == "password"){
+                pass.type = "text";
+                view.src = "./view.png";
+            }
+            else{
+                view.src = "./hide.png";
+            }
+        }
+    </script>
+</body>
+</html>
