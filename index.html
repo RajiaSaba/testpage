@@ -4,8 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .container{
+            width: 90%;
+            max-width: 800px;
+            height: 100vh;
+            margin: auto; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content{
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+        }
+        .content input{
+            width: 100%;
+            padding: 20px 10px;
+            border: 2px solid rosybrown;
+            border-radius: 5px;
+            outline: 0;
+            color: black;
+            font-size: 20px;
+        }
+        button img{
+            width: 30px;
+            position: absolute;
+            top: 30%;
+            right: 50px;
+            background-color: transparent;
+
+        }
+        #msg{
+            padding: 10px;
+            display: none;
+            font-size: 16px;
+        }
+
+    </style>
 </head>
 <body>
-    <h6>this is live now</h6>
+    <div class="container">
+        <div class="content">
+            <input type="password" placeholder="Enter your password" id="pass">
+            <button type="submit" id="icon">
+                <img src="next.png">
+            </button>
+            <p id="msg">Password is <span id="msg-stranth"></span></p>
+        </div>
+    </div>
+
+    <script>
+        let pass= document.getElementById("pass");
+        let msg= document.getElementById("msg");
+        let str= document.getElementById("msg-stranth");
+
+        pass.addEventListener('input',()=>{
+            if(pass.value.length == 0){
+                msg.style.display = "none";
+            }
+            else{
+                msg.style.display = "block";
+            }
+
+            if(pass.value.length < 4){
+                str.innerHTML = "Weak";
+                str.style.color = "red";
+
+            }
+            else if(pass.value.length <= 4 && pass.value.length < 8){
+                str.innerHTML = "Medium";
+                str.style.color = "orange";
+
+            }
+            else if(pass.value.length >= 8){
+                str.innerHTML = "Strong";
+                str.style.color = "green";
+
+            }
+        })
+    </script>
 </body>
 </html>
